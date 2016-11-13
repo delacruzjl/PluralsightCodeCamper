@@ -1,0 +1,32 @@
+{
+  "name": "koFun",
+  "authors": [
+    "Jose DelaCruz <jodelac@microsoft.com>"
+  ],
+  "description": "0.0.1",
+  "main": "./Views/App/Index.cshtml",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "1.12.4",
+    "knockout": "^3.4.1",
+    "bootstrap": "^3.3.7",
+    "amplify": "^1.1.2",
+    "sammy": "^0.7.6",
+    "underscore": "^1.8.3",
+    "moment": "^2.16.0",
+    "toastr": "^2.1.3",
+    "qunit": "^2.0.1",
+    "requirejs": "^2.3.2",
+    "jquery-mockjson": "*",
+    "modernizr": "^3.3.1"
+  }
+}
