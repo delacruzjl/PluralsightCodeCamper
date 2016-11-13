@@ -41,13 +41,14 @@ namespace koFun.Data
 
         protected IRepository<T> GetStandardRepo<T>() where T : class
         {
-            return
+            return null;
         }
 
         protected virtual void Dispose(bool disposing)
         {
             if (!disposing) return;
             GC.SuppressFinalize(this);
+            DbContext.Dispose();
         }
     }
 }
