@@ -1,8 +1,7 @@
-[![Travis Build Status](https://travis-ci.org/jquery/qunit.svg?branch=master)](https://travis-ci.org/jquery/qunit) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jquery/qunit?svg=true&branch=master)](https://ci.appveyor.com/project/leobalter/qunit) [![Coverage Status](https://coveralls.io/repos/jquery/qunit/badge.svg)](https://coveralls.io/github/jquery/qunit)
+[QUnit](http://docs.jquery.com/QUnit) - A JavaScript Unit Testing framework.
+================================
 
-# [QUnit](https://qunitjs.com) - A JavaScript Unit Testing Framework.
-
-QUnit is a powerful, easy-to-use, JavaScript unit testing framework. It's used by the jQuery
+QUnit is a powerful, easy-to-use, JavaScript test suite. It's used by the jQuery
 project to test its code and plugins but is capable of testing any generic
 JavaScript code (and even capable of testing JavaScript code on the server-side).
 
@@ -22,41 +21,28 @@ with its stop/start facilities for testing asynchronous code.
 
 If you are interested in helping developing QUnit, you are in the right place.
 For related discussions, visit the
-[QUnit and Testing forum](https://forum.jquery.com/qunit-and-testing).
+[QUnit and Testing forum](http://forum.jquery.com/qunit-and-testing).
 
-## Development
+Planning for a qunitjs.com site and other testing tools related work now happens
+on the [jQuery Testing Team planning wiki](http://jquerytesting.pbworks.com/w/page/41556026/FrontPage).
+
+Development
+-----------
 
 To submit patches, fork the repository, create a branch for the change. Then implement
-the change, run `npm test` to lint and test it, then commit, push and create a pull request.
+the change, run `grunt` to lint and test it, then commit, push and create a pull request.
 
 Include some background for the change in the commit message and `Fixes #nnn`, referring
 to the issue number you're addressing.
 
-To run `npm test`, you need [Node.js](https://nodejs.org/download/), which includes `npm`.
+To run `grunt`, you need `node` and `npm`, then `npm install grunt -g`.
 
-## Releases
+Releases
+--------
 
-Use [jquery-release](https://github.com/jquery/jquery-release). The following aren't handled there, do that first:
+Install git-extras and run `git changelog` to update History.md.
+Update qunit/qunit.js|css to the release version, commit and tag, update them
+again to the next version, commit and push commits and tags.
 
-* Install [git-extras](https://github.com/visionmedia/git-extras) and run `git changelog` to update `History.md`. Clean up the changelog, removing merge commits, whitespace cleanups or other irrelevant commits.
-* Run `grunt authors` and add any new authors to AUTHORS.txt
-* Update the version property in `package.json` to have the right -pre version. Not necessary for patch releases.
-
-Commit these:
-
-	Build: Prepare @VERSION release, including authors and history update
-
-Then run the script:
-
-	node release.js --remote=jquery/qunit
-
-Update `jquery/qunitjs.com`, replacing previous versions with new ones:
-
-* pages/index.html
-* resources/*.html
-
-Update [GitHub releases](https://github.com/jquery/qunit/releases), use the changelog from `History.md`.
-
-Finally announce on Twitter @qunitjs (add highlights if possible, otherwise a 2nd tweet might do):
-
-	Released @VERSION: https://github.com/jquery/qunit/releases/tag/1.17.0
+Put the 'v' in front of the tag (unlike the 1.1.0 release). Clean up the changelog,
+removing merge commits or whitespace cleanups.

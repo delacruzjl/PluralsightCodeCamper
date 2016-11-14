@@ -1,8 +1,11 @@
-﻿namespace koFun.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace koFun.Model
 {
     public class SessionBrief
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Title is Required")]
         public string Title { get; set; }
         public string Code { get; set; }
         public int SpeakerId { get; set; }

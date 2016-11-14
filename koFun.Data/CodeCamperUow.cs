@@ -1,16 +1,21 @@
 ﻿using System;
 using koFun.Contracts;
+using koFun.Data.Helpers;
 using koFun.Model;
 
 namespace koFun.Data
 {
     public class CodeCamperUow : ICodeCamperUow
     {
-        public CodeCamperUow()
+        public CodeCamperUow(IRepositoryProvider repositoryProvider)
         {
             CreateDbContext();
+
+            repositoryProvider.DbContext = DbContext;
+            RepositoryProvider = repositoryProvider;
         }
 
+        protected IRepositoryProvider RepositoryProvider { get; set; }
         protected CodeCamperDbContext DbContext { get; set; }
 
         public virtual void Commit()
@@ -23,12 +28,12 @@ namespace koFun.Data
             Dispose(true);
         }
 
-        public IRepository<Room> Rooms { get; }
-        public IRepository<TimeSlot> TimeSlots { get; }
-        public IRepository<Track> Tracks { get; }
-        public ISessionRepository Sessions { get; }
-        public IAttendanceRepository Attendances { get; }
-        public IPersonRepository Persons { get; }
+        public IRepository<Room> Rooms => GetStandardRepo<Room>();
+        public IRepository<TimeSlot> TimeSlots => GetStandardRepo<TimeSlot>();
+        public IRepository<Track> Tracks => GetStandardRepo<Track>();
+        public ISessionRepository Sessions => GetRepo<ISessionRepository>();
+        public IAttendanceRepository Attendances => GetRepo<IAttendanceRepository>();
+        public IPersonRepository Persons => GetRepo<IPersonRepository>();
 
         protected void CreateDbContext()
         {
@@ -41,7 +46,11 @@ namespace koFun.Data
 
         protected IRepository<T> GetStandardRepo<T>() where T : class
         {
-            return null;
+            return RepositoryProvider.GetRepositoryForEntityType<T>();
+        }
+        private T GetRepo<T>() where T : class
+        {
+            return RepositoryProvider.GetRepository<T>();
         }
 
         protected virtual void Dispose(bool disposing)

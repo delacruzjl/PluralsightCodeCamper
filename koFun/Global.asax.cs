@@ -13,6 +13,9 @@ namespace koFun
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            IocConfig.Register(GlobalConfiguration.Configuration);
+            CustomConfig.Register(GlobalConfiguration.Configuration);
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             

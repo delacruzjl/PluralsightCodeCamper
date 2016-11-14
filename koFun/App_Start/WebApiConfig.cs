@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace koFun
 {
@@ -6,16 +7,6 @@ namespace koFun
     {
         public static void Register(HttpConfiguration config)
         {
-            var mediaTypeFormatterCollection = config.Formatters;
-
-            mediaTypeFormatterCollection
-                .JsonFormatter
-                .SerializerSettings
-                .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            
-            mediaTypeFormatterCollection
-                .Remove(mediaTypeFormatterCollection.XmlFormatter);
-
             config.MapHttpAttributeRoutes();
         }
     }
