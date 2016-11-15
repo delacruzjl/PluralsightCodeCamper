@@ -1,68 +1,7 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>
-        Sample App
-    </title>
-    <link href="@Url.Content("~/scripts/lib/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet" />
-    <link href="@Url.Content("~/scripts/lib/bootstrap/dist/css/bootstrap-theme.css")" rel="stylesheet" />
-</head>
-<body>
-    <div class="container">
-        <div class="page-header">
-            <h3> Tags</h3>
-        </div>
-        <div class="row">
-            <input type="text" class="form-control" value="" placeholder="Add New Tag" data-bind="value: tagToAdd, valueUpdate: 'afterkeydown', executeOnEnter: addTag" />
-            <button class="btn btn-primary" data-bind="click: addTag">+ Add</button>
-        </div>
-        <div class="row">
-            <ul data-bind="foreach: tags">
-                <li data-bind="click: $parent.selectTag">
-                    <span data-bind="text: Name"></span>
-                    <span data-bind="text: TimeStamp"></span>
-                    <div>
-                        <a class="btn btn-warning" href="#">Edit</a>
-                        <a class="btn btn-danger" href="#">Remove</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="modal fade" id="tagDialog" tabindex="-1" role="dialog" aria-labelledby="tagDialog-label">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="tagDialog-label">Edit Tag</h4>
-                </div>
-                <div class="modal-body" data-bind="with: selectedTag">
-                    Tag name:
-                    <input type="text" data-bind="value: Name" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bind="click: cancelClick">Close</button>
-                    <button type="button" class="btn btn-primary" data-bind="click: saveClick">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="@Url.Content("~/scripts/lib/jquery/dist/jquery.min.js")"></script>
-    <script src="@Url.Content("~/scripts/lib/bootstrap/dist/js/bootstrap.min.js")"></script>
-    <script src="@Url.Content("~/scripts/lib/knockout/dist/knockout.debug.js")"></script>
-
-    <script src="@Url.Content("~/scripts/app/ko-protected-observable.js")"></script>
-    <script src="@Url.Content("~/scripts/app/ko-enter-binding.js")"></script>
-    <script src="@Url.Content("~/scripts/app/app.js")"></script>
-
-
-
-</body>
-</html>
+<div class="container">
+    <p>Hello world! This is HTML5 Boilerplate.</p>
+</div>

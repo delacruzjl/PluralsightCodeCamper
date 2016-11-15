@@ -126,10 +126,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\images\apple-touch-icon.png" />
     <Content Include="Global.asax" />
     <Content Include="scripts\app\app.js" />
     <Content Include="scripts\app\ko-enter-binding.js" />
     <Content Include="scripts\app\ko-protected-observable.js" />
+    <Content Include="scripts\lib\modernizr\modernizr.js" />
     <Content Include="Test\webapi\webapi-endpoints-tests.html" />
     <Content Include="Test\webapi\webapi-endpoints-tests.js" />
     <Content Include="Test\webapi\webapi-testsuite.html" />
@@ -137,6 +139,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="package.json" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -191,7 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="scripts\lib\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\koFun.Contracts\koFun.Contracts.csproj">

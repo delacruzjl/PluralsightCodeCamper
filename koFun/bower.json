@@ -29,6 +29,9 @@
     "modernizr": "^3.3.1"
   },
   "dependencies": {
-    "qunit": "1.6"
+    "qunit": "1.6",
+    "normalize-strings": "normalize#^1.1.0",
+    "normalize-css": "normalize.css#^5.0.0",
+    "modernizr": "^3.3.1"
   }
 }
